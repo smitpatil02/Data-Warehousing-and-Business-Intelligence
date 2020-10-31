@@ -1,0 +1,66 @@
+d:\Northeastern\DWBI\Week02>bcp Health_Care_Provider_Credential in Health_Care_Provider_Credential_Data.csv -S SMIT-PC -T -d bcp -F2
+
+Enter the file storage type of field CredentialNumber [char]:
+Enter prefix-length of field CredentialNumber [2]: 0
+Enter length of field CredentialNumber [255]:
+Enter field terminator [none]: ,
+
+Enter the file storage type of field LastName [char]:
+Enter prefix-length of field LastName [2]: 0
+Enter length of field LastName [255]:
+Enter field terminator [none]: ,
+
+Enter the file storage type of field FirstName [char]:
+Enter prefix-length of field FirstName [2]: 0
+Enter length of field FirstName [255]:
+Enter field terminator [none]: ,
+
+Enter the file storage type of field MiddleName [char]:
+Enter prefix-length of field MiddleName [2]: 0
+Enter length of field MiddleName [255]:
+Enter field terminator [none]: ,
+
+Enter the file storage type of field CredentialType [char]:
+Enter prefix-length of field CredentialType [2]: 0
+Enter length of field CredentialType [255]:
+Enter field terminator [none]: ,
+
+Enter the file storage type of field Status [char]:
+Enter prefix-length of field Status [2]: 0
+Enter length of field Status [255]:
+Enter field terminator [none]: ,
+
+Enter the file storage type of field BirthYear [char]:
+Enter prefix-length of field BirthYear [2]: 0
+Enter length of field BirthYear [255]:
+Enter field terminator [none]: ,
+
+Enter the file storage type of field CEDueDate [char]:
+Enter prefix-length of field CEDueDate [2]: 0
+Enter length of field CEDueDate [255]:
+Enter field terminator [none]: ,
+
+Enter the file storage type of field FirstIssueDate [char]:
+Enter prefix-length of field FirstIssueDate [2]: 0
+Enter length of field FirstIssueDate [255]:
+Enter field terminator [none]: ,
+
+Enter the file storage type of field LastIssueDate [char]:
+Enter prefix-length of field LastIssueDate [2]: 0
+Enter length of field LastIssueDate [255]:
+Enter field terminator [none]: ,
+
+Enter the file storage type of field ExpirationDate [char]:
+Enter prefix-length of field ExpirationDate [2]: 0
+Enter length of field ExpirationDate [255]:
+Enter field terminator [none]: ,
+
+Enter the file storage type of field ActionTaken [char]:
+Enter prefix-length of field ActionTaken [2]: 0
+Enter length of field ActionTaken [255]:
+Enter field terminator [none]: \n
+
+Do you want to save this format information in a file? [Y/n] y
+Host filename [bcp.fmt]: Health_Care_Provider_Credential_Data_In.fmt 
+
+d:\Northeastern\DWBI\Week02>Health_Care_Provider_Credential_Data.csv -S SMIT-PC -T -d bcp -f Health_Care_Provider_Credential_Data_In.fmt -F2

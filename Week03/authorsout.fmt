@@ -1,0 +1,11 @@
+14.0
+9
+1       SQLCHAR             0       11      ","      1     au_id                SQL_Latin1_General_CP1_CI_AS
+2       SQLCHAR             0       40      ","      2     au_lname             SQL_Latin1_General_CP1_CI_AS
+3       SQLCHAR             0       20      ","      3     au_fname             SQL_Latin1_General_CP1_CI_AS
+4       SQLCHAR             0       12      ","      4     phone                SQL_Latin1_General_CP1_CI_AS
+5       SQLCHAR             0       40      ","      5     address              SQL_Latin1_General_CP1_CI_AS
+6       SQLCHAR             0       20      ","      6     city                 SQL_Latin1_General_CP1_CI_AS
+7       SQLCHAR             0       2       ","      7     state                SQL_Latin1_General_CP1_CI_AS
+8       SQLCHAR             0       5       ","      8     zip                  SQL_Latin1_General_CP1_CI_AS
+9       SQLCHAR              0       1       "\r\n"   9     contract             SQL_Latin1_General_CP1_CI_AS

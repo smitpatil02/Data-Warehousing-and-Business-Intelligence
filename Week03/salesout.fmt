@@ -1,0 +1,8 @@
+14.0
+6
+1       SQLCHAR             0       4       ","      1     stor_id              SQL_Latin1_General_CP1_CI_AS
+2       SQLCHAR             0       20      ","      2     ord_num              SQL_Latin1_General_CP1_CI_AS
+3       SQLCHAR             0       24      ","      3     ord_date             SQL_Latin1_General_CP1_CI_AS
+4       SQLCHAR             0       6       ","      4     qty                  SQL_Latin1_General_CP1_CI_AS
+5       SQLCHAR             0       12      ","      5     payterms             SQL_Latin1_General_CP1_CI_AS
+6       SQLCHAR             0       6       "\r\n"   6     title_id             SQL_Latin1_General_CP1_CI_AS
