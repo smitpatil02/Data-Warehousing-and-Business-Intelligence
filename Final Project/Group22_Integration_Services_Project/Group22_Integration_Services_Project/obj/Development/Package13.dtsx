@@ -1,0 +1,2800 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/16/2020 12:34:11 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SMIT-PC"
+  DTS:CreatorName="SMIT-PC\Smit"
+  DTS:DTSID="{D337B3BF-51A0-4753-8A03-CEA03E76AB82}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.132"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package13"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{03E05283-CC62-4820-9325-8F8F1FFAAAFD}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SMIT-PC.Books_DW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{8229E50F-5AF8-48A8-BD99-6F4FF0E33701}"
+      DTS:ObjectName="SMIT-PC.Books_DW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SMIT-PC;Initial Catalog=Books_DW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SMIT-PC.Staging_Books]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{70F0669F-66A2-4F10-A2BE-82F23FEFC182}"
+      DTS:ObjectName="SMIT-PC.Staging_Books">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SMIT-PC;Initial Catalog=Staging_Books;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{4BE92E4E-F8AD-4CCC-AEC8-169309F69ADE}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Data Conversion 3"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion 3"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Data Conversion 3.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Inputs[Data Conversion Input].Columns[books_count]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="16"
+                      cachedName="books_count"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[books_count]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Inputs[Data Conversion Input].Columns[reviews_count]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="24"
+                      cachedName="reviews_count"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[reviews_count]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Inputs[Data Conversion Input].Columns[original_publication_month]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="original_publication_month"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[original_publication_month]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Inputs[Data Conversion Input].Columns[default_description_language_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="default_description_language_code"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[default_description_language_code]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Inputs[Data Conversion Input].Columns[text_reviews_count]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="text_reviews_count"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[text_reviews_count]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Inputs[Data Conversion Input].Columns[best_book_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="32"
+                      cachedName="best_book_id"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[best_book_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Inputs[Data Conversion Input].Columns[original_publication_year]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="original_publication_year"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[original_publication_year]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Inputs[Data Conversion Input].Columns[original_title]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="760"
+                      cachedName="original_title"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[original_title]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Inputs[Data Conversion Input].Columns[rating_dist]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="220"
+                      cachedName="rating_dist"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[rating_dist]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Inputs[Data Conversion Input].Columns[default_chaptering_book_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="default_chaptering_book_id"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[default_chaptering_book_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Inputs[Data Conversion Input].Columns[original_publication_day]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="original_publication_day"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[original_publication_day]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Inputs[Data Conversion Input].Columns[original_language_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="original_language_id"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[original_language_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Inputs[Data Conversion Input].Columns[ratings_count]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="24"
+                      cachedName="ratings_count"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[ratings_count]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Inputs[Data Conversion Input].Columns[media_type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="media_type"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[media_type]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Inputs[Data Conversion Input].Columns[ratings_sum]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="28"
+                      cachedName="ratings_sum"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[ratings_sum]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Inputs[Data Conversion Input].Columns[work_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="32"
+                      cachedName="work_id"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[work_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Data Flow Task\Data Conversion 3.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of books_count]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of books_count]"
+                      name="Copy of books_count"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[books_count]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of reviews_count]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of reviews_count]"
+                      name="Copy of reviews_count"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[reviews_count]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of original_publication_month]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of original_publication_month]"
+                      name="Copy of original_publication_month"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[original_publication_month]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of default_description_language_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="80"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of default_description_language_code]"
+                      name="Copy of default_description_language_code"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[default_description_language_code]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of text_reviews_count]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of text_reviews_count]"
+                      name="Copy of text_reviews_count"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[text_reviews_count]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of best_book_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of best_book_id]"
+                      name="Copy of best_book_id"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[best_book_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of original_publication_year]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of original_publication_year]"
+                      name="Copy of original_publication_year"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[original_publication_year]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of original_title]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="760"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of original_title]"
+                      name="Copy of original_title"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[original_title]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of rating_dist]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="220"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of rating_dist]"
+                      name="Copy of rating_dist"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[rating_dist]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of default_chaptering_book_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of default_chaptering_book_id]"
+                      name="Copy of default_chaptering_book_id"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[default_chaptering_book_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of original_publication_day]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of original_publication_day]"
+                      name="Copy of original_publication_day"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[original_publication_day]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of original_language_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of original_language_id]"
+                      name="Copy of original_language_id"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[original_language_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of ratings_count]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of ratings_count]"
+                      name="Copy of ratings_count"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[ratings_count]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of media_type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="80"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of media_type]"
+                      name="Copy of media_type"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[media_type]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of ratings_sum]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of ratings_sum]"
+                      name="Copy of ratings_sum"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[ratings_sum]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of work_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of work_id]"
+                      name="Copy of work_id"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[work_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Data Flow Task\Data Conversion 3.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Derived Column 1"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Derived Column 1.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Derived Column 1.Inputs[Derived Column Input].Columns[Copy of original_publication_month]"
+                      cachedDataType="i4"
+                      cachedName="Copy of original_publication_month"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of original_publication_month]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Derived Column 1.Inputs[Derived Column Input].Columns[Copy of original_publication_year]"
+                      cachedDataType="i4"
+                      cachedName="Copy of original_publication_year"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of original_publication_year]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Derived Column 1.Inputs[Derived Column Input].Columns[Copy of original_publication_day]"
+                      cachedDataType="ui4"
+                      cachedName="Copy of original_publication_day"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of original_publication_day]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Data Flow Task\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[original_publication_date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[original_publication_date]"
+                      name="original_publication_date"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DBDATE)(DT_STR,10,1252)([REPLACENULL]((DT_STR,10,1252)#{Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of original_publication_year]},"1900") + "-" + [REPLACENULL]((DT_STR,10,1252)#{Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of original_publication_month]},"01") + "-" + [REPLACENULL]((DT_STR,10,1252)#{Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of original_publication_day]},"01"))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBDATE)(DT_STR,10,1252)(REPLACENULL((DT_STR,10,1252)[Copy of original_publication_year],"1900") + "-" + REPLACENULL((DT_STR,10,1252)[Copy of original_publication_month],"01") + "-" + REPLACENULL((DT_STR,10,1252)[Copy of original_publication_day],"01"))</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Data Flow Task\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\DIM_Date_2"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DIM_Date_2"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DIM_Date]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\DIM_Date_2.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SMIT-PC.Books_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[SMIT-PC.Books_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\DIM_Date_2.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIM_Date_2.Inputs[OLE DB Destination Input].Columns[original_publication_date]"
+                      cachedDataType="dbDate"
+                      cachedName="original_publication_date"
+                      externalMetadataColumnId="Package\Data Flow Task\DIM_Date_2.Inputs[OLE DB Destination Input].ExternalColumns[publication_date]"
+                      lineageId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[original_publication_date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIM_Date_2.Inputs[OLE DB Destination Input].Columns[Copy of original_publication_day]"
+                      cachedDataType="ui4"
+                      cachedName="Copy of original_publication_day"
+                      externalMetadataColumnId="Package\Data Flow Task\DIM_Date_2.Inputs[OLE DB Destination Input].ExternalColumns[publication_day]"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of original_publication_day]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIM_Date_2.Inputs[OLE DB Destination Input].Columns[Copy of original_publication_year]"
+                      cachedDataType="i4"
+                      cachedName="Copy of original_publication_year"
+                      externalMetadataColumnId="Package\Data Flow Task\DIM_Date_2.Inputs[OLE DB Destination Input].ExternalColumns[publication_year]"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of original_publication_year]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIM_Date_2.Inputs[OLE DB Destination Input].Columns[Copy of original_publication_month]"
+                      cachedDataType="i4"
+                      cachedName="Copy of original_publication_month"
+                      externalMetadataColumnId="Package\Data Flow Task\DIM_Date_2.Inputs[OLE DB Destination Input].ExternalColumns[publication_month]"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of original_publication_month]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIM_Date_2.Inputs[OLE DB Destination Input].ExternalColumns[publication_year]"
+                      dataType="dbDate"
+                      name="publication_year" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIM_Date_2.Inputs[OLE DB Destination Input].ExternalColumns[publication_month]"
+                      dataType="dbDate"
+                      name="publication_month" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIM_Date_2.Inputs[OLE DB Destination Input].ExternalColumns[publication_day]"
+                      dataType="dbDate"
+                      name="publication_day" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIM_Date_2.Inputs[OLE DB Destination Input].ExternalColumns[publication_date]"
+                      dataType="dbDate"
+                      name="publication_date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIM_Date_2.Inputs[OLE DB Destination Input].ExternalColumns[DIM_DATE_SK]"
+                      dataType="i4"
+                      name="DIM_DATE_SK" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\DIM_Date_2.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\DIM_Date_2.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DIM_Date_2.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DIM_Date_2.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DIM_Date_2.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DIM_Date_2.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\DIM_Works"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DIM_Works"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DIM_Works]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\DIM_Works.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SMIT-PC.Books_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[SMIT-PC.Books_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\DIM_Works.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIM_Works.Inputs[OLE DB Destination Input].Columns[Copy of work_id]"
+                      cachedDataType="i4"
+                      cachedName="Copy of work_id"
+                      externalMetadataColumnId="Package\Data Flow Task\DIM_Works.Inputs[OLE DB Destination Input].ExternalColumns[Work_ID]"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of work_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIM_Works.Inputs[OLE DB Destination Input].Columns[Copy of default_chaptering_book_id]"
+                      cachedDataType="i4"
+                      cachedName="Copy of default_chaptering_book_id"
+                      externalMetadataColumnId="Package\Data Flow Task\DIM_Works.Inputs[OLE DB Destination Input].ExternalColumns[default_chaptering_book_id]"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of default_chaptering_book_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIM_Works.Inputs[OLE DB Destination Input].Columns[Copy of original_language_id]"
+                      cachedDataType="i4"
+                      cachedName="Copy of original_language_id"
+                      externalMetadataColumnId="Package\Data Flow Task\DIM_Works.Inputs[OLE DB Destination Input].ExternalColumns[original_language_id]"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of original_language_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIM_Works.Inputs[OLE DB Destination Input].Columns[Copy of best_book_id]"
+                      cachedDataType="i4"
+                      cachedName="Copy of best_book_id"
+                      externalMetadataColumnId="Package\Data Flow Task\DIM_Works.Inputs[OLE DB Destination Input].ExternalColumns[best_book_id]"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of best_book_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIM_Works.Inputs[OLE DB Destination Input].Columns[Copy of default_description_language_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="Copy of default_description_language_code"
+                      externalMetadataColumnId="Package\Data Flow Task\DIM_Works.Inputs[OLE DB Destination Input].ExternalColumns[default_description_language_code]"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of default_description_language_code]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIM_Works.Inputs[OLE DB Destination Input].Columns[Copy of original_title]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="760"
+                      cachedName="Copy of original_title"
+                      externalMetadataColumnId="Package\Data Flow Task\DIM_Works.Inputs[OLE DB Destination Input].ExternalColumns[work_original_title]"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of original_title]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIM_Works.Inputs[OLE DB Destination Input].Columns[Copy of rating_dist]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="220"
+                      cachedName="Copy of rating_dist"
+                      externalMetadataColumnId="Package\Data Flow Task\DIM_Works.Inputs[OLE DB Destination Input].ExternalColumns[rating_dist]"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of rating_dist]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIM_Works.Inputs[OLE DB Destination Input].Columns[Copy of media_type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="Copy of media_type"
+                      externalMetadataColumnId="Package\Data Flow Task\DIM_Works.Inputs[OLE DB Destination Input].ExternalColumns[media_type]"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of media_type]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIM_Works.Inputs[OLE DB Destination Input].ExternalColumns[DIM_WORKS_SK]"
+                      dataType="i4"
+                      name="DIM_WORKS_SK" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIM_Works.Inputs[OLE DB Destination Input].ExternalColumns[Work_ID]"
+                      dataType="i4"
+                      name="Work_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIM_Works.Inputs[OLE DB Destination Input].ExternalColumns[default_chaptering_book_id]"
+                      dataType="i4"
+                      name="default_chaptering_book_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIM_Works.Inputs[OLE DB Destination Input].ExternalColumns[original_language_id]"
+                      dataType="i4"
+                      name="original_language_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIM_Works.Inputs[OLE DB Destination Input].ExternalColumns[best_book_id]"
+                      dataType="i4"
+                      name="best_book_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIM_Works.Inputs[OLE DB Destination Input].ExternalColumns[default_description_language_code]"
+                      dataType="i4"
+                      name="default_description_language_code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIM_Works.Inputs[OLE DB Destination Input].ExternalColumns[work_original_title]"
+                      codePage="1252"
+                      dataType="str"
+                      length="800"
+                      name="work_original_title" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIM_Works.Inputs[OLE DB Destination Input].ExternalColumns[rating_dist]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      name="rating_dist" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIM_Works.Inputs[OLE DB Destination Input].ExternalColumns[media_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="media_type" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\DIM_Works.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\DIM_Works.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DIM_Works.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DIM_Works.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DIM_Works.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DIM_Works.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Lookup 3"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup 3"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DIM_Works]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DIM_Works]) [refTable]
+where [refTable].[Work_ID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="DIM_WORKS_SK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Work_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="default_chaptering_book_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="original_language_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="best_book_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="default_description_language_code" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="work_original_title" dataType="DT_STR" length="800" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="rating_dist" dataType="DT_STR" length="250" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="media_type" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of work_id]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Lookup 3.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SMIT-PC.Books_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[SMIT-PC.Books_DW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Lookup 3.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Lookup 3.Inputs[Lookup Input].Columns[Copy of work_id]"
+                      cachedDataType="i4"
+                      cachedName="Copy of work_id"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of work_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Work_ID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Lookup 3.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Data Flow Task\Lookup 3.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Lookup 3.Outputs[Lookup Match Output].Columns[Work_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Data Flow Task\Lookup 3.Outputs[Lookup Match Output].Columns[Work_ID]"
+                      name="Work_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Work_ID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Lookup 3.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Data Flow Task\Lookup 3.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Lookup 3.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Data Flow Task\Lookup 3.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Lookup 3.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Lookup 3.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Lookup 3.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Lookup 3.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Lookup 6"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup 6"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DIM_Date]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DIM_Date]) [refTable]
+where [refTable].[publication_date] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="DIM_DATE_SK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="publication_date" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="publication_year" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="publication_month" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="publication_day" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[original_publication_date]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Lookup 6.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SMIT-PC.Books_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[SMIT-PC.Books_DW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Lookup 6.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Lookup 6.Inputs[Lookup Input].Columns[original_publication_date]"
+                      cachedDataType="dbDate"
+                      cachedName="original_publication_date"
+                      lineageId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[original_publication_date]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">publication_date</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Lookup 6.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Data Flow Task\Lookup 6.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Lookup 6.Outputs[Lookup Match Output].Columns[publication_date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Data Flow Task\Lookup 6.Outputs[Lookup Match Output].Columns[publication_date]"
+                      name="publication_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">publication_date</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Lookup 6.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Data Flow Task\Lookup 6.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Lookup 6.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Data Flow Task\Lookup 6.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Lookup 6.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Lookup 6.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Lookup 6.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Lookup 6.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Multicast"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Multicast.Outputs[Multicast Output 3]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 3"
+                  synchronousInputId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Multicast.Outputs[Multicast Output 1]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Multicast.Outputs[Multicast Output 2]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 2"
+                  synchronousInputId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\REJECT_Goodreads_Works_1"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="REJECT_Goodreads_Works_1"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[REJECT_Goodreads_Works]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SMIT-PC.Staging_Books]"
+                  connectionManagerRefId="Package.ConnectionManagers[SMIT-PC.Staging_Books]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].Columns[books_count]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="16"
+                      cachedName="books_count"
+                      externalMetadataColumnId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].ExternalColumns[books_count]"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[books_count]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].Columns[reviews_count]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="24"
+                      cachedName="reviews_count"
+                      externalMetadataColumnId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].ExternalColumns[reviews_count]"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[reviews_count]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].Columns[original_publication_month]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="original_publication_month"
+                      externalMetadataColumnId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].ExternalColumns[original_publication_month]"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[original_publication_month]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].Columns[default_description_language_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="default_description_language_code"
+                      externalMetadataColumnId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].ExternalColumns[default_description_language_code]"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[default_description_language_code]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].Columns[text_reviews_count]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="text_reviews_count"
+                      externalMetadataColumnId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].ExternalColumns[text_reviews_count]"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[text_reviews_count]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].Columns[best_book_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="32"
+                      cachedName="best_book_id"
+                      externalMetadataColumnId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].ExternalColumns[best_book_id]"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[best_book_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].Columns[original_publication_year]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="original_publication_year"
+                      externalMetadataColumnId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].ExternalColumns[original_publication_year]"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[original_publication_year]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].Columns[original_title]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="760"
+                      cachedName="original_title"
+                      externalMetadataColumnId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].ExternalColumns[original_title]"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[original_title]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].Columns[rating_dist]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="220"
+                      cachedName="rating_dist"
+                      externalMetadataColumnId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].ExternalColumns[rating_dist]"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[rating_dist]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].Columns[default_chaptering_book_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="default_chaptering_book_id"
+                      externalMetadataColumnId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].ExternalColumns[default_chaptering_book_id]"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[default_chaptering_book_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].Columns[original_publication_day]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="original_publication_day"
+                      externalMetadataColumnId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].ExternalColumns[original_publication_day]"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[original_publication_day]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].Columns[original_language_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="original_language_id"
+                      externalMetadataColumnId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].ExternalColumns[original_language_id]"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[original_language_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].Columns[ratings_count]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="24"
+                      cachedName="ratings_count"
+                      externalMetadataColumnId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].ExternalColumns[ratings_count]"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[ratings_count]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].Columns[media_type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="media_type"
+                      externalMetadataColumnId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].ExternalColumns[media_type]"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[media_type]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].Columns[ratings_sum]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="28"
+                      cachedName="ratings_sum"
+                      externalMetadataColumnId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].ExternalColumns[ratings_sum]"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[ratings_sum]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].Columns[work_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="32"
+                      cachedName="work_id"
+                      externalMetadataColumnId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].ExternalColumns[work_id]"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[work_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].ExternalColumns[books_count]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="books_count" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].ExternalColumns[reviews_count]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      name="reviews_count" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].ExternalColumns[original_publication_month]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="original_publication_month" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].ExternalColumns[default_description_language_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="default_description_language_code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].ExternalColumns[text_reviews_count]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="text_reviews_count" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].ExternalColumns[best_book_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="best_book_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].ExternalColumns[original_publication_year]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="original_publication_year" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].ExternalColumns[original_title]"
+                      codePage="1252"
+                      dataType="str"
+                      length="760"
+                      name="original_title" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].ExternalColumns[rating_dist]"
+                      codePage="1252"
+                      dataType="str"
+                      length="220"
+                      name="rating_dist" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].ExternalColumns[default_chaptering_book_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="default_chaptering_book_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].ExternalColumns[original_publication_day]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="original_publication_day" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].ExternalColumns[original_language_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="original_language_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].ExternalColumns[ratings_count]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      name="ratings_count" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].ExternalColumns[media_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="media_type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].ExternalColumns[ratings_sum]"
+                      codePage="1252"
+                      dataType="str"
+                      length="28"
+                      name="ratings_sum" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input].ExternalColumns[work_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="work_id" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\REJECT_Goodreads_Works_2"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="REJECT_Goodreads_Works_2"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[REJECT_Goodreads_Works]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SMIT-PC.Staging_Books]"
+                  connectionManagerRefId="Package.ConnectionManagers[SMIT-PC.Staging_Books]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].Columns[Copy of books_count]"
+                      cachedDataType="i4"
+                      cachedName="Copy of books_count"
+                      externalMetadataColumnId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].ExternalColumns[books_count]"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of books_count]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].Columns[Copy of reviews_count]"
+                      cachedDataType="i4"
+                      cachedName="Copy of reviews_count"
+                      externalMetadataColumnId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].ExternalColumns[reviews_count]"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of reviews_count]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].Columns[Copy of original_publication_month]"
+                      cachedDataType="i4"
+                      cachedName="Copy of original_publication_month"
+                      externalMetadataColumnId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].ExternalColumns[original_publication_month]"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of original_publication_month]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].Columns[Copy of default_description_language_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="Copy of default_description_language_code"
+                      externalMetadataColumnId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].ExternalColumns[default_description_language_code]"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of default_description_language_code]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].Columns[Copy of text_reviews_count]"
+                      cachedDataType="i4"
+                      cachedName="Copy of text_reviews_count"
+                      externalMetadataColumnId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].ExternalColumns[text_reviews_count]"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of text_reviews_count]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].Columns[Copy of best_book_id]"
+                      cachedDataType="i4"
+                      cachedName="Copy of best_book_id"
+                      externalMetadataColumnId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].ExternalColumns[best_book_id]"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of best_book_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].Columns[Copy of original_publication_year]"
+                      cachedDataType="i4"
+                      cachedName="Copy of original_publication_year"
+                      externalMetadataColumnId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].ExternalColumns[original_publication_year]"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of original_publication_year]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].Columns[Copy of original_title]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="760"
+                      cachedName="Copy of original_title"
+                      externalMetadataColumnId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].ExternalColumns[original_title]"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of original_title]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].Columns[Copy of rating_dist]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="220"
+                      cachedName="Copy of rating_dist"
+                      externalMetadataColumnId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].ExternalColumns[rating_dist]"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of rating_dist]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].Columns[Copy of default_chaptering_book_id]"
+                      cachedDataType="i4"
+                      cachedName="Copy of default_chaptering_book_id"
+                      externalMetadataColumnId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].ExternalColumns[default_chaptering_book_id]"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of default_chaptering_book_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].Columns[Copy of original_publication_day]"
+                      cachedDataType="ui4"
+                      cachedName="Copy of original_publication_day"
+                      externalMetadataColumnId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].ExternalColumns[original_publication_day]"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of original_publication_day]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].Columns[Copy of original_language_id]"
+                      cachedDataType="i4"
+                      cachedName="Copy of original_language_id"
+                      externalMetadataColumnId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].ExternalColumns[original_language_id]"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of original_language_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].Columns[Copy of ratings_count]"
+                      cachedDataType="i4"
+                      cachedName="Copy of ratings_count"
+                      externalMetadataColumnId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].ExternalColumns[ratings_count]"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of ratings_count]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].Columns[Copy of media_type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="Copy of media_type"
+                      externalMetadataColumnId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].ExternalColumns[media_type]"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of media_type]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].Columns[Copy of ratings_sum]"
+                      cachedDataType="i4"
+                      cachedName="Copy of ratings_sum"
+                      externalMetadataColumnId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].ExternalColumns[ratings_sum]"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of ratings_sum]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].Columns[Copy of work_id]"
+                      cachedDataType="i4"
+                      cachedName="Copy of work_id"
+                      externalMetadataColumnId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].ExternalColumns[work_id]"
+                      lineageId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output].Columns[Copy of work_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].ExternalColumns[books_count]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="books_count" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].ExternalColumns[reviews_count]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      name="reviews_count" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].ExternalColumns[original_publication_month]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="original_publication_month" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].ExternalColumns[default_description_language_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="default_description_language_code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].ExternalColumns[text_reviews_count]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="text_reviews_count" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].ExternalColumns[best_book_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="best_book_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].ExternalColumns[original_publication_year]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="original_publication_year" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].ExternalColumns[original_title]"
+                      codePage="1252"
+                      dataType="str"
+                      length="760"
+                      name="original_title" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].ExternalColumns[rating_dist]"
+                      codePage="1252"
+                      dataType="str"
+                      length="220"
+                      name="rating_dist" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].ExternalColumns[default_chaptering_book_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="default_chaptering_book_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].ExternalColumns[original_publication_day]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="original_publication_day" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].ExternalColumns[original_language_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="original_language_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].ExternalColumns[ratings_count]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      name="ratings_count" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].ExternalColumns[media_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="media_type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].ExternalColumns[ratings_sum]"
+                      codePage="1252"
+                      dataType="str"
+                      length="28"
+                      name="ratings_sum" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input].ExternalColumns[work_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="work_id" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\STG_Goodreads_Works"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="STG_Goodreads_Works"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[STG_Goodreads_Works]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\STG_Goodreads_Works.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SMIT-PC.Staging_Books]"
+                  connectionManagerRefId="Package.ConnectionManagers[SMIT-PC.Staging_Books]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[books_count]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].ExternalColumns[books_count]"
+                      length="16"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[books_count]"
+                      name="books_count"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[reviews_count]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].ExternalColumns[reviews_count]"
+                      length="24"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[reviews_count]"
+                      name="reviews_count"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[original_publication_month]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].ExternalColumns[original_publication_month]"
+                      length="80"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[original_publication_month]"
+                      name="original_publication_month"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[default_description_language_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].ExternalColumns[default_description_language_code]"
+                      length="80"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[default_description_language_code]"
+                      name="default_description_language_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[text_reviews_count]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].ExternalColumns[text_reviews_count]"
+                      length="20"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[text_reviews_count]"
+                      name="text_reviews_count"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[best_book_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].ExternalColumns[best_book_id]"
+                      length="32"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[best_book_id]"
+                      name="best_book_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[original_publication_year]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].ExternalColumns[original_publication_year]"
+                      length="80"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[original_publication_year]"
+                      name="original_publication_year"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[original_title]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].ExternalColumns[original_title]"
+                      length="760"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[original_title]"
+                      name="original_title"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[rating_dist]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].ExternalColumns[rating_dist]"
+                      length="220"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[rating_dist]"
+                      name="rating_dist"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[default_chaptering_book_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].ExternalColumns[default_chaptering_book_id]"
+                      length="80"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[default_chaptering_book_id]"
+                      name="default_chaptering_book_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[original_publication_day]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].ExternalColumns[original_publication_day]"
+                      length="80"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[original_publication_day]"
+                      name="original_publication_day"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[original_language_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].ExternalColumns[original_language_id]"
+                      length="80"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[original_language_id]"
+                      name="original_language_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[ratings_count]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].ExternalColumns[ratings_count]"
+                      length="24"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[ratings_count]"
+                      name="ratings_count"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[media_type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].ExternalColumns[media_type]"
+                      length="80"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[media_type]"
+                      name="media_type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[ratings_sum]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].ExternalColumns[ratings_sum]"
+                      length="28"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[ratings_sum]"
+                      name="ratings_sum"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[work_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].ExternalColumns[work_id]"
+                      length="32"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].Columns[work_id]"
+                      name="work_id"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].ExternalColumns[books_count]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="books_count" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].ExternalColumns[reviews_count]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      name="reviews_count" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].ExternalColumns[original_publication_month]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="original_publication_month" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].ExternalColumns[default_description_language_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="default_description_language_code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].ExternalColumns[text_reviews_count]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="text_reviews_count" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].ExternalColumns[best_book_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="best_book_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].ExternalColumns[original_publication_year]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="original_publication_year" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].ExternalColumns[original_title]"
+                      codePage="1252"
+                      dataType="str"
+                      length="760"
+                      name="original_title" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].ExternalColumns[rating_dist]"
+                      codePage="1252"
+                      dataType="str"
+                      length="220"
+                      name="rating_dist" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].ExternalColumns[default_chaptering_book_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="default_chaptering_book_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].ExternalColumns[original_publication_day]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="original_publication_day" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].ExternalColumns[original_language_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="original_language_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].ExternalColumns[ratings_count]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      name="ratings_count" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].ExternalColumns[media_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="media_type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].ExternalColumns[ratings_sum]"
+                      codePage="1252"
+                      dataType="str"
+                      length="28"
+                      name="ratings_sum" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output].ExternalColumns[work_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="work_id" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[books_count]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[books_count]"
+                      name="books_count" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[reviews_count]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[reviews_count]"
+                      name="reviews_count" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[original_publication_month]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[original_publication_month]"
+                      name="original_publication_month" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[default_description_language_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[default_description_language_code]"
+                      name="default_description_language_code" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[text_reviews_count]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[text_reviews_count]"
+                      name="text_reviews_count" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[best_book_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[best_book_id]"
+                      name="best_book_id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[original_publication_year]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[original_publication_year]"
+                      name="original_publication_year" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[original_title]"
+                      codePage="1252"
+                      dataType="str"
+                      length="760"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[original_title]"
+                      name="original_title" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[rating_dist]"
+                      codePage="1252"
+                      dataType="str"
+                      length="220"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[rating_dist]"
+                      name="rating_dist" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[default_chaptering_book_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[default_chaptering_book_id]"
+                      name="default_chaptering_book_id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[original_publication_day]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[original_publication_day]"
+                      name="original_publication_day" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[original_language_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[original_language_id]"
+                      name="original_language_id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[ratings_count]"
+                      codePage="1252"
+                      dataType="str"
+                      length="24"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[ratings_count]"
+                      name="ratings_count" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[media_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[media_type]"
+                      name="media_type" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[ratings_sum]"
+                      codePage="1252"
+                      dataType="str"
+                      length="28"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[ratings_sum]"
+                      name="ratings_sum" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[work_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[work_id]"
+                      name="work_id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Data Conversion Error Output]"
+              endId="Package\Data Flow Task\REJECT_Goodreads_Works_1.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Error Output"
+              startId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Error Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Data Conversion Output]"
+              endId="Package\Data Flow Task\Derived Column 1.Inputs[Derived Column Input]"
+              name="Data Conversion Output"
+              startId="Package\Data Flow Task\Data Conversion 3.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Derived Column Error Output]"
+              endId="Package\Data Flow Task\REJECT_Goodreads_Works_2.Inputs[OLE DB Destination Input]"
+              name="Derived Column Error Output"
+              startId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Error Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Derived Column Output]"
+              endId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]"
+              name="Derived Column Output"
+              startId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Lookup No Match Output]"
+              endId="Package\Data Flow Task\DIM_Works.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\Data Flow Task\Lookup 3.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Lookup No Match Output1]"
+              endId="Package\Data Flow Task\DIM_Date_2.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\Data Flow Task\Lookup 6.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Multicast Output 2]"
+              endId="Package\Data Flow Task\Lookup 6.Inputs[Lookup Input]"
+              name="Multicast Output 2"
+              startId="Package\Data Flow Task\Multicast.Outputs[Multicast Output 2]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Multicast Output 3]"
+              endId="Package\Data Flow Task\Lookup 3.Inputs[Lookup Input]"
+              name="Multicast Output 3"
+              startId="Package\Data Flow Task\Multicast.Outputs[Multicast Output 3]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\Data Conversion 3.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\STG_Goodreads_Works.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Data Flow Task"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="192,41.6"
+          Id="Package\Data Flow Task\STG_Goodreads_Works"
+          TopLeft="104.026643184194,60" />
+        <NodeLayout
+          Size="169.6,41.6"
+          Id="Package\Data Flow Task\Data Conversion 3"
+          TopLeft="112.00963745028,148.866667086814" />
+        <NodeLayout
+          Size="222.4,41.6"
+          Id="Package\Data Flow Task\REJECT_Goodreads_Works_1"
+          TopLeft="294.404182553115,229.247443169876" />
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Data Flow Task\Derived Column 1"
+          TopLeft="89.4041965838679,250.591037566486" />
+        <NodeLayout
+          Size="119.2,41.6"
+          Id="Package\Data Flow Task\Multicast"
+          TopLeft="80.951273527115,333.55079329719" />
+        <NodeLayout
+          Size="222.4,41.6"
+          Id="Package\Data Flow Task\REJECT_Goodreads_Works_2"
+          TopLeft="296.540236182485,331.602143773048" />
+        <NodeLayout
+          Size="120.8,41.6"
+          Id="Package\Data Flow Task\Lookup 3"
+          TopLeft="68.984117238674,413.445378954728" />
+        <NodeLayout
+          Size="120.8,41.6"
+          Id="Package\Data Flow Task\Lookup 6"
+          TopLeft="257.419483379265,419.345938574387" />
+        <NodeLayout
+          Size="132.8,41.6"
+          Id="Package\Data Flow Task\DIM_Works"
+          TopLeft="60,501.258556551616" />
+        <NodeLayout
+          Size="136.8,41.6"
+          Id="Package\Data Flow Task\DIM_Date_2"
+          TopLeft="251.798779121395,505.33300734606" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="198.418140317235,101.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47.266667086814"
+              Start="0,0"
+              End="0,39.766667086814">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.766667086814" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Data Conversion Output]"
+          TopLeft="170.240250350405,190.466667086814">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.1243704796723"
+              Start="0,0"
+              End="0,52.6243704796723">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.6243704796723" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Data Conversion Error Output]"
+          TopLeft="223.742970783615,190.466667086814">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="181.861211769504,38.7807760830617"
+              Start="0,0"
+              End="181.861211769504,31.2807760830617">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.7297727290175" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.7297727290175"
+                    Point2="0,15.7297727290175"
+                    Point3="4,15.7297727290175" />
+                  <mssgle:LineSegment
+                    End="177.861211769504,15.7297727290175" />
+                  <mssgle:CubicBezierSegment
+                    Point1="177.861211769504,15.7297727290175"
+                    Point2="181.861211769504,15.7297727290175"
+                    Point3="181.861211769504,19.7297727290175" />
+                  <mssgle:LineSegment
+                    End="181.861211769504,31.2807760830617" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="24.8442191660021,20.7297727290175,132.1727734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="142.711068388825,292.191037566486">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.3597557307038"
+              Start="0,0"
+              End="0,33.8597557307038">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.8597557307038" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Error Output]"
+          TopLeft="196.337529917205,292.191037566486">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="211.402706265279,39.4111062065614"
+              Start="0,0"
+              End="211.402706265279,31.9111062065614">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.9951416409069" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.9951416409069"
+                    Point2="0,15.9951416409069"
+                    Point3="4,15.9951416409069" />
+                  <mssgle:LineSegment
+                    End="207.402706265279,15.9951416409069" />
+                  <mssgle:CubicBezierSegment
+                    Point1="207.402706265279,15.9951416409069"
+                    Point2="211.402706265279,15.9951416409069"
+                    Point3="211.402706265279,19.9951416409069" />
+                  <mssgle:LineSegment
+                    End="211.402706265279,31.9111062065614" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="40.7399664138896,20.9951416409069,129.9227734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Multicast Output 3]"
+          TopLeft="125.701028716228,375.15079329719">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.2945856575382"
+              Start="0,0"
+              End="0,30.7945856575382">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.7945856575382" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Multicast Output 2]"
+          TopLeft="159.084606860445,375.15079329719">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="158.734876518812,44.1951452771966"
+              Start="0,0"
+              End="158.734876518812,36.6951452771966">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.0292778084458" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.0292778084458"
+                    Point2="0,18.0292778084458"
+                    Point3="4,18.0292778084458" />
+                  <mssgle:LineSegment
+                    End="154.734876518812,18.0292778084458" />
+                  <mssgle:CubicBezierSegment
+                    Point1="154.734876518812,18.0292778084458"
+                    Point2="158.734876518812,18.0292778084458"
+                    Point3="158.734876518812,22.0292778084458" />
+                  <mssgle:LineSegment
+                    End="158.734876518812,36.6951452771966" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup No Match Output]"
+          TopLeft="127.892058619337,455.045378954728">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46.2131775968875"
+              Start="0,0"
+              End="0,38.7131775968875">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.7131775968875" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,13.5519012984437,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup No Match Output1]"
+          TopLeft="319.009131250325,460.945938574387">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.3870687716732"
+              Start="0,0"
+              End="0,36.8870687716732">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.8870687716732" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,12.6388468858366,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

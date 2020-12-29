@@ -1,0 +1,96 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>Multidimensional Final Project</Database>
+    <Server>localhost</Server>
+    <ConnectionString>Data Source=localhost;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>DoNotProcess</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>g4d6UZZYtVjwRYDY7MhP/ZGSEcg=16-Dec-20 10:10:23 PM16-Dec-20 10:10:23 PM</TimeStamp>
+        <ID>
+          <String>Books DW</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>1xypMwO0AsJJbkEV0MYwtr8dLVM=16-Dec-20 10:11:05 PM16-Dec-20 10:11:05 PM</TimeStamp>
+        <ID>
+          <String>Books DW</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>mO549AmzkZTBI/H1BhTBG6uPdQc=16-Dec-20 10:59:24 PM16-Dec-20 10:11:51 PM</TimeStamp>
+        <ID>
+          <String>DIM Date</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>0o6Kv7luvx+OYg6mQUqoJVPuZTM=16-Dec-20 10:56:02 PM16-Dec-20 10:11:51 PM</TimeStamp>
+        <ID>
+          <String>DIM Series</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>urcQZGE4FFa+f4XyWrjSN3q6vhg=16-Dec-20 10:58:28 PM16-Dec-20 10:11:51 PM</TimeStamp>
+        <ID>
+          <String>DIM Books</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>mcSaUUpTwiM+KjYtaalxFvIqgMI=16-Dec-20 10:58:28 PM16-Dec-20 10:11:51 PM</TimeStamp>
+        <ID>
+          <String>DIM Authors</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>EJoSqscpi3uRtwL97vhlgEc+H/M=16-Dec-20 10:56:02 PM16-Dec-20 10:11:51 PM</TimeStamp>
+        <ID>
+          <String>DIM Works</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>YxvKu+GooPH1V4yVE1LIxDDF13U=16-Dec-20 10:11:51 PM16-Dec-20 10:11:51 PM</TimeStamp>
+        <ID>
+          <String>DIM Popular Shelves</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>mhRebK9qCcLGBgwX4iuHMFJri1A=16-Dec-20 10:59:24 PM16-Dec-20 10:11:51 PM08iXJp1h5kKi7GhwPrIdXg+l8fI=16-Dec-20 10:11:51 PM16-Dec-20 10:11:51 PM</TimeStamp>
+        <ID>
+          <String>Books DW</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>DAxnnwMTgsN2tWh/TJTpyzJuHAM=16-Dec-20 10:09:30 PM16-Dec-20 10:09:30 PM</TimeStamp>
+      <ID>
+        <String>Multidimensional Final Project</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2020-12-17T05:51:41.963333Z</LastDeployed>
+</DeploymentSnapshot>
