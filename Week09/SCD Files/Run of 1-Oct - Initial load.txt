@@ -1,0 +1,4 @@
+1	John	Smith	15	Sales	02903
+2	Bob	Jones	25.5	Marketing	02901
+3	Fred	Flinstone	32	Manager	01048
+4	Betty 	Rubble	31	Warehouse	01048
